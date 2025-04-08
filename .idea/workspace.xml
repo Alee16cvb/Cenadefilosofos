@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="343196ec-073d-431e-8160-11643a071571" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Cena de los filosofos.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cena_filosofos.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cena_filosofos.py" beforeDir="false" afterPath="$PROJECT_DIR$/cena_filosofos.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +95,7 @@
       <workItem from="1743993594192" duration="819000" />
       <workItem from="1743994423754" duration="246000" />
       <workItem from="1744079388720" duration="1439000" />
-      <workItem from="1744080854853" duration="1399000" />
+      <workItem from="1744080854853" duration="1899000" />
     </task>
     <servers />
   </component>
@@ -106,6 +104,6 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Cena_de_los_filosofos$cena_filosofos.coverage" NAME="cena_filosofos Coverage Results" MODIFIED="1743994430552" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Cena_de_los_filosofos$cena_filosofos__1_.coverage" NAME="cena_filosofos (1) Coverage Results" MODIFIED="1744082073155" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Cena_de_los_filosofos$cena_filosofos__1_.coverage" NAME="cena_filosofos (1) Coverage Results" MODIFIED="1744082764724" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
