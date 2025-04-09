@@ -7,6 +7,7 @@ import time
 class Tenedor:
     def __init__(self, id):
         self.id = id
+        self.id_ocupa = ""
         self.ocupado=False
         self.lock = threading.Lock()
 
@@ -57,26 +58,28 @@ class Filosofo(threading.Thread):
 
     def run(self):
         while self.vivo:
-            self.control_event.wait()
-            self.pensar()
+            self.accion()
 
-            self.control_event.wait()
-            self.portero.entrar()
-            self.interfaz.actualizar_estado(self.id, "Intentando comer", "pink")
+    def accion(self):
+        self.control_event.wait()
+        self.pensar()
 
-            if self.tenedor_izq.coger():
-                self.interfaz.actualizar_estado(self.id, f"Cogió tenedor {self.tenedor_izq.id}", "cyan")
+        self.control_event.wait()
+        self.portero.entrar()
+        self.interfaz.actualizar_estado(self.id, "Intentando comer", "pink")
+
+        if self.tenedor_izq.coger():
+            self.interfaz.actualizar_estado(self.id, f"Cogió tenedor {self.tenedor_izq.id}", "cyan")
+            self.tenedor_izq.is_ocupado()
+            if self.tenedor_der.coger():
                 self.tenedor_izq.is_ocupado()
-                if self.tenedor_der.coger():
-                    self.tenedor_izq.is_ocupado()
-                    self.comer()
-                    self.tenedor_der.soltar()
-                    self.tenedor_der.no_is_ocupado()
+                self.comer()
+                self.tenedor_der.soltar()
+                self.tenedor_der.no_is_ocupado()
 
-                self.tenedor_izq.soltar()
-                self.tenedor_izq.no_is_ocupado()
-            self.portero.salir()
-
+            self.tenedor_izq.soltar()
+            self.tenedor_izq.no_is_ocupado()
+        self.portero.salir()
     def pensar(self):
         self.interfaz.actualizar_estado(self.id, "Pensando", "white")
         time.sleep(random.uniform(0.5, 1.5))
@@ -193,6 +196,7 @@ class Simulador:
                 f = Filosofo(i, self.tenedores[i], self.tenedores[(i + 1) % self.num_filosofos], self.portero, self.interfaz, self.control_event)
                 self.filosofos.append(f)
                 f.start()
+
     def actualizacion(self):
         while True:
             if self.estado:
@@ -231,10 +235,6 @@ def main():
     app = Simulador(root)
     root.protocol("WM_DELETE_WINDOW", lambda: (app.detener(), root.destroy()))
     root.mainloop()
-
-
-
-
 
 if __name__ == "__main__":
     main()
